@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Modern Muse</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <!-- Header: logo left, title centered, nav right -->
+  <header>
+    <div class="header-bar">
+      <a href="index.html" class="logo-link">
+        <img src="logo.png" alt="Modern Muse logo" class="site-logo">
+      </a>
+      <h1 class="site-title">Modern Muse</h1>
+      <nav class="site-nav" aria-label="Primary">
+        <ul>
+          <li><a href="travel.html">Travel</a></li>
+          <li><a href="lifestyle.html">Lifestyle</a></li>
+          <li><a href="beauty.html">Beauty</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero">
+      <h2>Travel • Lifestyle • Beauty</h2>
+      <p>Your space for inspiration and balance.</p>
+      <a href="travel.html" class="btn">Explore</a>
+    </section>
+
+    <!-- CARDS -->
+    <section class="grid">
+      <a class="card" href="travel.html">
+        <h3>Travel</h3>
+        <p>Stories, destinations, and mindful adventures.</p>
+      </a>
+      <a class="card" href="lifestyle.html">
+        <h3>Lifestyle</h3>
+        <p>Everyday living, growth, and inspiration.</p>
+      </a>
+      <a class="card" href="beauty.html">
+        <h3>Beauty</h3>
+        <p>Tips, routines, and confidence through self-care.</p>
+      </a>
+    </section>
+
+    <!-- ABOUT (right-aligned block) -->
+    <section class="about">
+      <div class="about-box">
+        <h3>About Me</h3>
+        <p>
+          Hi, I'm <strong>Madison Paredes</strong>, the creator of <em>The Modern Muse</em>.
+          This site grew from my passion for sharing experiences, ideas, and inspiration in the ways that I love most:
+          travel, lifestyle, and beauty. I believe that creativity does not have to be complicated; it’s about noticing the
+          details, embracing authenticity, and finding beauty in everyday moments.
+        </p>
+        <p>
+          Here, I'm writing about personal experiences, practical tips, and selectively curated suggestions to encourage others
+          to live thoughtfully and with curiosity. Whether you're looking for travel tips, beauty must-haves, or just need a
+          spark of inspiration, I hope that <em>The Modern Muse</em> inspires you to live your most authentic life.
+        </p>
+      </div>
+    </section>
+
+    <!-- NEWSLETTER -->
+    <section class="newsletter">
+      <h3>Join the Museletter</h3>
+      <input type="email" placeholder="Your email">
+    </section>
+  </main>
+
+  <footer>
+    © <span id="year"></span> Modern Muse
+  </footer>
+
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>
