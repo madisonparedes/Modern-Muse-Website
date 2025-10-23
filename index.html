@@ -3,20 +3,53 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Modern Muse</title>
+  <title>The Modern Muse</title>
+
+  <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+
+  <!-- Main stylesheet -->
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- Tiny helpers (safe with your CSS) -->
+  <style>
+    /* Skip link (only visible on keyboard focus) */
+    .skip-link{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden}
+    .skip-link:focus{position:static;width:auto;height:auto;padding:8px 12px;margin:8px;background:#000;color:#fff;border-radius:6px;display:inline-block}
+
+    /* Ensure button text is readable */
+    .btn,.btn:visited,.btn:active{color:#fff !important}
+
+    /* Visible focus for keyboard users */
+    a:focus-visible, button:focus-visible, input:focus-visible{outline:3px solid #000;outline-offset:2px}
+
+    /* Utility for screen-reader-only headings (keeps structure for WAVE) */
+    .visually-hidden{
+      position:absolute !important; width:1px; height:1px; padding:0; margin:-1px;
+      overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap; border:0;
+    }
+
+    /* Optional: nicer newsletter label layout if you want it visible */
+    .newsletter label{display:block;margin:8px auto 6px;max-width:260px;text-align:left}
+    .newsletter form{display:flex;flex-direction:column;align-items:center;gap:10px}
+  </style>
 </head>
 
 <body>
+  <!-- 1) Skip to content -->
+  <a class="skip-link" href="#main">Skip to content</a>
+
   <!-- Header: logo left, title centered, nav right -->
   <header>
     <div class="header-bar">
       <a href="index.html" class="logo-link">
-        <img src="logo.png" alt="Modern Muse logo" class="site-logo">
+        <img src="logo.png" alt="Modern Muse" class="site-logo" />
       </a>
-      <h1 class="site-title">Modern Muse</h1>
-      <nav class="site-nav" aria-label="Primary">
+
+      <!-- One H1 per page -->
+      <h1 class="site-title">The Modern Muse</h1>
+
+      <nav class="site-nav" aria-label="Main navigation">
         <ul>
           <li><a href="travel.html">Travel</a></li>
           <li><a href="lifestyle.html">Lifestyle</a></li>
@@ -26,34 +59,40 @@
     </div>
   </header>
 
-  <main>
+  <!-- Main landmark for skip link -->
+  <main id="main">
     <!-- HERO -->
-    <section class="hero">
-      <h2>Travel • Lifestyle • Beauty</h2>
+    <section class="hero" aria-labelledby="hero-title">
+      <h2 id="hero-title">Travel • Lifestyle • Beauty</h2>
       <p>Your space for inspiration and balance.</p>
-      <a href="travel.html" class="btn">Explore</a>
+      <!-- 2) Explore now scrolls to categories to avoid “redundant link” -->
+      <a href="#categories" class="btn">Explore</a>
     </section>
 
-    <!-- CARDS -->
-    <section class="grid">
+    <!-- CATEGORIES -->
+    <section id="categories" class="grid" aria-labelledby="categories-title">
+      <h2 id="categories-title" class="visually-hidden">Categories</h2>
+
       <a class="card" href="travel.html">
         <h3>Travel</h3>
         <p>Stories, destinations, and mindful adventures.</p>
       </a>
+
       <a class="card" href="lifestyle.html">
         <h3>Lifestyle</h3>
         <p>Everyday living, growth, and inspiration.</p>
       </a>
+
       <a class="card" href="beauty.html">
         <h3>Beauty</h3>
         <p>Tips, routines, and confidence through self-care.</p>
       </a>
     </section>
 
-    <!-- ABOUT (right-aligned block) -->
-    <section class="about">
+    <!-- ABOUT (right-aligned by your CSS) -->
+    <section class="about" aria-labelledby="about-title">
       <div class="about-box">
-        <h3>About Me</h3>
+        <h3 id="about-title">About Me</h3>
         <p>
           Hi, I'm <strong>Madison Paredes</strong>, the creator of <em>The Modern Muse</em>.
           This site grew from my passion for sharing experiences, ideas, and inspiration in the ways that I love most:
@@ -68,17 +107,32 @@
       </div>
     </section>
 
-    <!-- NEWSLETTER -->
-    <section class="newsletter">
-      <h3>Join the Museletter</h3>
-      <input type="email" placeholder="Your email">
+    <!-- NEWSLETTER (with proper label + submit) -->
+    <section class="newsletter" aria-labelledby="newsletter-title">
+      <h3 id="newsletter-title">Join the Museletter</h3>
+
+      <form action="#" method="post" novalidate>
+        <label id="newsletter-email-label" for="newsletter-email">Email</label>
+        <input
+          id="newsletter-email"
+          name="email"
+          type="email"
+          autocomplete="email"
+          placeholder="you@example.com"
+          required
+          aria-labelledby="newsletter-email-label"
+        />
+        <button type="submit" class="btn">Subscribe</button>
+      </form>
     </section>
   </main>
 
   <footer>
-    © <span id="year"></span> Modern Muse
+    © <span id="year"></span> The Modern Muse
   </footer>
 
-  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
