@@ -11,42 +11,116 @@
   <!-- Main stylesheet -->
   <link rel="stylesheet" href="style.css" />
 
-  <!-- Tiny helpers (safe with your CSS) -->
   <style>
-    /* Skip link (only visible on keyboard focus) */
-    .skip-link{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden}
-    .skip-link:focus{position:static;width:auto;height:auto;padding:8px 12px;margin:8px;background:#000;color:#fff;border-radius:6px;display:inline-block}
-
-    /* Ensure button text is readable */
-    .btn,.btn:visited,.btn:active{color:#fff !important}
-
-    /* Visible focus for keyboard users */
-    a:focus-visible, button:focus-visible, input:focus-visible{outline:3px solid #000;outline-offset:2px}
-
-    /* Utility for screen-reader-only headings (keeps structure for WAVE) */
-    .visually-hidden{
-      position:absolute !important; width:1px; height:1px; padding:0; margin:-1px;
-      overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap; border:0;
+    .skip-link {
+      position: absolute; left: -9999px;
+    }
+    .skip-link:focus {
+      position: static; background: #000; color: #fff; padding: 8px 12px;
     }
 
-    /* Optional: nicer newsletter label layout if you want it visible */
-    .newsletter label{display:block;margin:8px auto 6px;max-width:260px;text-align:left}
-    .newsletter form{display:flex;flex-direction:column;align-items:center;gap:10px}
+    /* Optional: ensures the newsletter stays centered even if broken HTML occurs */
+    .newsletter-section {
+      width: 100%;
+      background-color: #faf7f2;
+      border-top: 1px solid #e6e2dc;
+      padding: 80px 20px;
+      display: block;
+    }
+
+    .newsletter-container {
+      max-width: 480px;
+      width: 100%;
+      margin: 0 auto;  /* centers it */
+      background: #fff;
+      border: 1px solid #e4dfd7;
+      border-radius: 20px;
+      box-shadow: 0 12px 30px rgba(0,0,0,.05);
+      text-align: center;
+      padding: 32px 24px 36px;
+    }
+
+    .newsletter-heading {
+      font-family: "Playfair Display", serif;
+      font-size: 1.6rem;
+      font-weight: 600;
+      color: #111;
+      margin: 0 0 10px;
+    }
+
+    .newsletter-desc {
+      font-size: 0.95rem;
+      line-height: 1.5;
+      color: #6f6a61;
+      margin: 0 0 24px;
+    }
+
+    .newsletter-form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .newsletter-label {
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: #111;
+      margin-bottom: 8px;
+      text-align: left;
+      width: 100%;
+      max-width: 260px;
+    }
+
+    .newsletter-input {
+      width: 100%;
+      max-width: 260px;
+      padding: 12px 14px;
+      border: 1px solid #cfc9be;
+      border-radius: 8px;
+      font-size: 0.95rem;
+      margin-bottom: 16px;
+      text-align: left;
+      color: #1a1a1a;
+      background-color: #fff;
+    }
+
+    .newsletter-btn {
+      background-color: #000;
+      color: #fff;
+      border: none;
+      padding: 12px 28px;
+      border-radius: 30px;
+      font-weight: 600;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      min-width: 150px;
+    }
+
+    .newsletter-btn:hover {
+      background-color: #333;
+    }
+
+    .site-footer {
+      background-color: #faf7f2;
+      border-top: 1px solid #e6e2dc;
+      text-align: center;
+      padding: 30px 20px 60px;
+      color: #111;
+      font-size: 0.9rem;
+    }
   </style>
 </head>
 
 <body>
-  <!-- 1) Skip to content -->
   <a class="skip-link" href="#main">Skip to content</a>
 
-  <!-- Header: logo left, title centered, nav right -->
   <header>
     <div class="header-bar">
       <a href="index.html" class="logo-link">
         <img src="logo.png" alt="Modern Muse" class="site-logo" />
       </a>
 
-      <!-- One H1 per page -->
       <h1 class="site-title">The Modern Muse</h1>
 
       <nav class="site-nav" aria-label="Main navigation">
@@ -59,76 +133,70 @@
     </div>
   </header>
 
-  <!-- Main landmark for skip link -->
   <main id="main">
-    <!-- HERO -->
     <section class="hero" aria-labelledby="hero-title">
       <h2 id="hero-title">Travel • Lifestyle • Beauty</h2>
       <p>Your space for inspiration and balance.</p>
-      <!-- 2) Explore now scrolls to categories to avoid “redundant link” -->
       <a href="#categories" class="btn">Explore</a>
     </section>
 
-    <!-- CATEGORIES -->
-    <section id="categories" class="grid" aria-labelledby="categories-title">
-      <h2 id="categories-title" class="visually-hidden">Categories</h2>
+    <section id="categories" class="grid">
+  <a class="card" href="travel.html">
+    <h3>Travel</h3>
+    <p>Stories, destinations, and mindful adventures.</p>
+  </a>
 
-      <a class="card" href="travel.html">
-        <h3>Travel</h3>
-        <p>Stories, destinations, and mindful adventures.</p>
-      </a>
+  <a class="card" href="lifestyle.html">
+    <h3>Lifestyle</h3>
+    <p>Everyday living, growth, and inspiration.</p>
+  </a>
 
-      <a class="card" href="lifestyle.html">
-        <h3>Lifestyle</h3>
-        <p>Everyday living, growth, and inspiration.</p>
-      </a>
+  <a class="card" href="beauty.html">
+    <h3>Beauty</h3>
+    <p>Tips, routines, and confidence through self-care.</p>
+  </a>
+</section>
 
-      <a class="card" href="beauty.html">
-        <h3>Beauty</h3>
-        <p>Tips, routines, and confidence through self-care.</p>
-      </a>
-    </section>
-
-    <!-- ABOUT (right-aligned by your CSS) -->
-    <section class="about" aria-labelledby="about-title">
-      <div class="about-box">
-        <h3 id="about-title">About Me</h3>
+    <section class="about-section">
+      <div class="about-photo">
+        <img src="about me.jpeg" alt="Portrait of Madison Paredes smiling outdoors near a river" class="profile-photo">
+      </div>
+      <div class="about-text">
+        <h2>About Me</h2>
         <p>
-          Hi, I'm <strong>Madison Paredes</strong>, the creator of <em>The Modern Muse</em>.
-          This site grew from my passion for sharing experiences, ideas, and inspiration in the ways that I love most:
-          travel, lifestyle, and beauty. I believe that creativity does not have to be complicated; it’s about noticing the
-          details, embracing authenticity, and finding beauty in everyday moments.
+          Hi, I'm <strong>Madison Paredes</strong>, the creator of <em>The Modern Muse.</em> This site grew from my passion for sharing experiences, ideas, and inspiration in the ways that I love most: travel, lifestyle, and beauty. I believe that creativity does not have to be complicated; it’s about noticing the details, embracing authenticity, and finding beauty in everyday moments.
         </p>
         <p>
-          Here, I'm writing about personal experiences, practical tips, and selectively curated suggestions to encourage others
-          to live thoughtfully and with curiosity. Whether you're looking for travel tips, beauty must-haves, or just need a
-          spark of inspiration, I hope that <em>The Modern Muse</em> inspires you to live your most authentic life.
+          Here, I'm writing about personal experiences, practical tips, and selectively curated suggestions to encourage others to live thoughtfully and with curiosity. Whether you're looking for travel tips, beauty must-haves, or just need a spark of inspiration, I hope that <em>The Modern Muse</em> inspires you to live your most authentic life.
         </p>
       </div>
     </section>
 
-    <!-- NEWSLETTER (with proper label + submit) -->
-    <section class="newsletter" aria-labelledby="newsletter-title">
-      <h3 id="newsletter-title">Join the Museletter</h3>
+    <!-- Fixed Newsletter -->
+    <section class="newsletter-section" id="newsletter">
+      <div class="newsletter-container">
+        <h2 class="newsletter-heading">Join the Museletter</h2>
+        <p class="newsletter-desc">
+          Little moments of inspo. Travel, Lifestyle, and Beauty straight to your inbox.
+        </p>
 
-      <form action="#" method="post" novalidate>
-        <label id="newsletter-email-label" for="newsletter-email">Email</label>
-        <input
-          id="newsletter-email"
-          name="email"
-          type="email"
-          autocomplete="email"
-          placeholder="you@example.com"
-          required
-          aria-labelledby="newsletter-email-label"
-        />
-        <button type="submit" class="btn">Subscribe</button>
-      </form>
+        <form class="newsletter-form">
+          <label for="email" class="newsletter-label">Email</label>
+          <input
+            type="email"
+            id="email"
+            class="newsletter-input"
+            placeholder="you@example.com"
+            required
+          >
+          <button type="submit" class="newsletter-btn">Subscribe</button>
+        </form>
+      </div>
     </section>
   </main>
 
-  <footer>
-    © <span id="year"></span> The Modern Muse
+  <footer class="site-footer">
+    <p>© <span id="year"></span> The Modern Muse</p>
   </footer>
 
   <script>
